@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Like About You</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
   <script src="script.js" defer></script>
 </head>
 <body>
   <!-- Background music -->
-  <audio id="bg-music" src="music/your-music.mp3" preload="auto"></audio>
+  <audio id="bg-music" src="music/your-music.mp3" preload="auto" loop></audio>
 
   <!-- Floating hearts container -->
   <div class="hearts"></div>
 
+  <!-- Play Music Button (initially shown) -->
+  <button id="play-btn" class="music-btn">Play Music 🎵</button>
+
   <!-- Main Content -->
-  <div class="container">
-    <img src="images/your-image.jpeg" alt="Her Photo" class="photo" id="main-photo" />
+  <div class="container" id="main-container" style="opacity: 0;">
+    <img src="images/your-image.jpeg" alt="Her Photo" class="photo" id="main-photo"/>
 
     <h1 class="title">What I Like About You ❤️</h1>
 
@@ -32,7 +35,9 @@
     </div>
 
     <h2>Forever yours,</h2>
-    <p class="signature">— Junior</p>
+    <div style="text-align:center">
+      <p class="signature">— Junior</p>
+    </div>
   </div>
 </body>
 </html>

@@ -5,28 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Like About You</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    function playMusic() {
-      const audio = document.getElementById("bg-music");
-      audio.play();
-      document.getElementById("play-btn").style.display = "none";
-    }
-  </script>
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Background Music -->
-  <audio id="bg-music" autoplay loop>
+  <!-- Background music -->
+  <audio autoplay loop>
     <source src="music/HIT%203%20-%20Prema%20Velluva%20BGM.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
-  <!-- Fallback Button if Autoplay is Blocked -->
-  <button id="play-btn" onclick="playMusic()" style="display: none; position: fixed; top: 10px; right: 10px; z-index: 1000;">
-    ▶️ Play Music
-  </button>
+  <!-- Floating hearts container -->
+  <div class="hearts"></div>
 
-  <!-- Main Content -->
+  <!-- Main container -->
   <div class="container">
     <img src="images/WhatsApp%20Image%202025-07-13%20at%2011.20.46%20AM.jpeg" alt="Her Photo" class="hero-photo" />
     <h1>What I Like About You ❤️</h1>
@@ -45,31 +36,5 @@
 
   <h2>Forever yours,</h2>
   <p class="signature">— Junior</p>
-
-  <script>
-    window.addEventListener('load', () => {
-      const audio = document.getElementById('bg-music');
-      const playBtn = document.getElementById('play-btn');
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          playBtn.style.display = 'block';
-        });
-      }
-    });
-  </script>
-<!-- Floating Hearts -->
-<script>
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = 5 + Math.random() * 5 + 's';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
-  }
-  setInterval(createHeart, 300);
-</script>
-
 </body>
 </html>

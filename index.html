@@ -5,38 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Like About You</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- Background Overlay & Image -->
+  <div class="background">
+    <img src="images/your-image.jpeg" alt="Her Photo" class="bg-photo" />
+    <div class="overlay"></div>
+  </div>
 
-  <audio id="bg-music" loop>
-    <source src="music/your-music.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
+  <!-- Floating hearts -->
   <div class="hearts"></div>
 
+  <!-- Main Content -->
   <div class="container">
-    <h1>
-      What I Like About You ❤️
-      <button id="playBtn">▶️ Play Music</button>
+    <h1>What I Like About You ❤️ 
+      <button id="play-btn">▶ Play Music</button>
     </h1>
 
-    <img src="images/your-image.jpeg" alt="Photo" class="hero-photo" />
+    <audio id="bg-music" loop>
+      <source src="music/your-music.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
 
-    <div class="love-notes hidden" id="notes">
+    <div class="love-notes hidden" id="love-notes">
       <p>💫 Your smile lights up every room.</p>
       <p>💬 Your laugh is my favorite melody.</p>
       <p>🌸 Your kindness makes the world softer.</p>
       <p>🌙 You believe in me when I don’t believe in myself.</p>
       <p>🪐 You’re my calm in the chaos.</p>
       <p>🍰 You’re sweeter than dessert and warmer than sunshine.</p>
-      <p>🫶 I Like how you love — genuinely, deeply, beautifully.</p>
+      <p>🫶 I like how you love — genuinely, deeply, beautifully.</p>
       <p>💌 Being with you is my favorite chapter.</p>
+      <h2>Forever yours,</h2>
+      <p class="signature">— Junior</p>
     </div>
-
-    <h2 class="hidden" id="signature-header">Forever yours,</h2>
-    <p class="signature hidden" id="signature">— Junior</p>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

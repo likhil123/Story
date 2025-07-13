@@ -2,42 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What I Like About You</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Floating hearts -->
-  <div class="hearts"></div>
+  <div class="hearts-container" id="hearts-container"></div>
 
-  <!-- Music control button -->
-  <button id="music-btn" title="Toggle Music">🔊</button>
-
-  <!-- Background music -->
-  <audio id="bg-music" autoplay loop>
-    <source src="music/HIT%203%20-%20Prema%20Velluva%20BGM.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Content -->
   <div class="container">
-    <img src="images/WhatsApp%20Image%202025-07-13%20at%2011.20.46%20AM.jpeg" alt="Her Photo" class="hero-photo" />
-    <h1 class="fade-in">What I Like About You ❤️</h1>
-    
-    <div class="love-notes">
-      <p class="note">💫 Your smile lights up every room.</p>
-      <p class="note">💬 Your laugh is my favorite melody.</p>
-      <p class="note">🌸 Your kindness makes the world softer.</p>
-      <p class="note">🌙 You believe in me when I don’t believe in myself.</p>
-      <p class="note">🪐 You’re my calm in the chaos.</p>
-      <p class="note">🍰 You’re sweeter than dessert and warmer than sunshine.</p>
-      <p class="note">🫶 I like how you love — genuinely, deeply, beautifully.</p>
-      <p class="note">💌 Being with you is my favorite chapter.</p>
+    <img src="your-image.png" alt="Photo" class="photo" />
+    <h1>What I Like About You ❤️</h1>
+    <div id="text-list" class="text-box">
+      <!-- List will appear here one by one -->
     </div>
-
-    <h2 class="fade-in">Forever yours,</h2>
-    <p class="signature">— Junior</p>
   </div>
+
+  <button id="music-btn">Play Music 🎵</button>
+  <audio id="bg-music" src="your-music.mp3" loop></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>

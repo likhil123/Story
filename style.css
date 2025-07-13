@@ -1,123 +1,85 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   background: url("images/your-image.jpeg") no-repeat center center fixed;
   background-size: cover;
+  overflow-x: hidden;
   position: relative;
+  color: #fff;
+  text-align: center;
 }
 
 .container {
-  animation: fadeIn 2s ease-in;
-  padding: 30px 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* translucent background */
-  display: inline-block;
-  border-radius: 12px;
-  margin-top: 20px;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  max-width: 700px;
+  border-radius: 15px;
 }
 
-.title-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
+.hero-photo {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
 }
 
-#play-btn {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 6px;
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+button#playBtn {
+  font-size: 0.9em;
+  margin-left: 10px;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: background 0.3s;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background 0.3s ease;
 }
-#play-btn:hover {
+button#playBtn:hover {
   background-color: #ff1493;
 }
 
-.photo {
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
-  display: none; /* Hide duplicate image if used as background */
-}
-
 .love-notes {
-  margin: 30px auto;
-  max-width: 600px;
+  margin-top: 30px;
   text-align: left;
+  padding: 20px;
   font-size: 1.2rem;
   line-height: 1.6;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  position: relative;
-}
-
-.love-notes p {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  margin: 10px 0;
+  backdrop-filter: blur(5px);
 }
 
 .signature {
   font-style: italic;
   font-size: 1.3rem;
-  margin-top: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #333;
-  width: 0;
-  margin-bottom: 40px;
-  z-index: 10;
-  position: relative;
+  margin-top: 20px;
 }
 
-@keyframes typing {
-  to {
-    width: 140px;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* HEARTS */
+/* Floating Hearts */
 .hearts {
   position: fixed;
   top: 0;
   left: 0;
+  pointer-events: none;
+  z-index: 999;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 0;
 }
-
 .heart {
   position: absolute;
-  color: red;
+  animation: floatHearts 6s linear infinite;
+  font-size: 20px;
   opacity: 0.8;
-  animation: floatHeart linear;
 }
-
-@keyframes floatHeart {
+@keyframes floatHearts {
   0% {
     transform: translateY(100vh);
     opacity: 1;
@@ -128,6 +90,7 @@ body {
   }
 }
 
+/* Reveal animation */
 .hidden {
   display: none;
 }

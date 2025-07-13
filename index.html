@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What I Like About You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What I Like About You ❤️</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background Overlay Image -->
+  <div class="background-overlay"></div>
+
+  <!-- Heart Animation Container -->
   <div class="hearts-container" id="hearts-container"></div>
 
-  <div class="container">
-    <img src="images/your-image.jpeg" alt="Photo" class="photo" />
+  <!-- Main Content Hidden Initially -->
+  <div class="container" id="main-content" style="display: none;">
+    <img src="images/your-image.jpeg" alt="Photo" class="photo" id="main-photo" />
     <h1>What I Like About You ❤️</h1>
-    <div id="text-list" class="text-box">
-      <!-- Text will appear here one-by-one -->
-    </div>
+    <div id="text-list" class="text-box"></div>
   </div>
 
-  <button id="music-btn">Play Music 🎵</button>
+  <!-- Background Music -->
   <audio id="bg-music" src="music/your-music.mp3" loop></audio>
 
+  <!-- JS Logic -->
   <script src="script.js"></script>
 </body>
 </html>

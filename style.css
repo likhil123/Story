@@ -17,6 +17,7 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   text-align: center;
+  opacity: 0;
 }
 
 .photo {
@@ -53,7 +54,11 @@ body {
   border-right: 2px solid #fff;
   width: 0;
   animation: typing 3s steps(20) forwards;
-  animation-delay: 10s;
+  animation-delay: 25s;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 @keyframes typing {
@@ -78,7 +83,6 @@ body {
 
 .heart {
   position: absolute;
-  color: red;
   animation: float 5s linear infinite;
   opacity: 0.7;
 }

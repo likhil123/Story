@@ -1,47 +1,43 @@
-document.getElementById("play-btn").addEventListener("click", () => {
-  const music = document.getElementById("bg-music");
-  const notesContainer = document.getElementById("notes");
-  const lines = notesContainer.querySelectorAll("p");
-  const heartsContainer = document.querySelector(".hearts");
+const music = document.getElementById("bg-music");
+const playBtn = document.getElementById("playBtn");
+const notes = document.getElementById("notes");
+const signatureHeader = document.getElementById("signature-header");
+const signature = document.getElementById("signature");
 
-  // Start music
-  music.play();
+playBtn.addEventListener("click", () => {
+  music.play().then(() => {
+    showTextLines();
+    playBtn.disabled = true;
+    playBtn.innerText = "🎵 Playing";
+  }).catch(err => {
+    console.error("Music play failed:", err);
+  });
+});
 
-  // Reveal notes container
-  notesContainer.classList.remove("hidden");
-
-  // Animate text line-by-line
-  lines.forEach((line, i) => {
+function showTextLines() {
+  const lines = notes.querySelectorAll("p");
+  notes.classList.remove("hidden");
+  lines.forEach((line, index) => {
     setTimeout(() => {
-      line.style.opacity = 1;
-    }, i * 1000);
+      line.style.display = "block";
+    }, index * 1000);
   });
 
-  // Closing and signature
   setTimeout(() => {
-    document.getElementById("closing").classList.remove("hidden");
+    signatureHeader.classList.remove("hidden");
+    signature.classList.remove("hidden");
   }, lines.length * 1000 + 500);
+}
 
-  setTimeout(() => {
-    const sig = document.getElementById("signature");
-    sig.classList.remove("hidden");
-    sig.style.animation = "typing 3s steps(20) forwards";
-  }, lines.length * 1000 + 2000);
+// Floating hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.textContent = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 24 + 12 + "px";
+  document.querySelector(".hearts").appendChild(heart);
 
-  // Start floating hearts
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.textContent = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 24 + 12 + "px";
-    heart.style.animationDuration = 3 + Math.random() * 2 + "s";
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-  }, 400);
-
-  // Disable button
-  const btn = document.getElementById("play-btn");
-  btn.disabled = true;
-  btn.textContent = "🎶 Playing";
-});
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 400);

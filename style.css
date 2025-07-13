@@ -1,20 +1,20 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
-  background-color: #fff0f5;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   overflow-x: hidden;
+  background: url("images/your-image.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
 
 .container {
   animation: fadeIn 2s ease-in;
-}
-
-.photo {
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 30px 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* translucent background */
+  display: inline-block;
+  border-radius: 12px;
   margin-top: 20px;
 }
 
@@ -23,8 +23,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 #play-btn {
@@ -41,16 +41,26 @@ body {
   background-color: #ff1493;
 }
 
+.photo {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  display: none; /* Hide duplicate image if used as background */
+}
+
 .love-notes {
   margin: 30px auto;
   max-width: 600px;
   text-align: left;
   font-size: 1.2rem;
   line-height: 1.6;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: relative;
 }
 
 .love-notes p {
@@ -68,25 +78,43 @@ body {
   border-right: 2px solid #333;
   width: 0;
   margin-bottom: 40px;
+  z-index: 10;
+  position: relative;
 }
 
 @keyframes typing {
-  to { width: 140px; }
+  to {
+    width: 140px;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Floating Hearts */
+/* HEARTS */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .heart {
   position: absolute;
   color: red;
-  animation: floatHeart linear;
-  animation-duration: 4s;
   opacity: 0.8;
-  z-index: 0;
+  animation: floatHeart linear;
 }
 
 @keyframes floatHeart {

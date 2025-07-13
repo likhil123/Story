@@ -3,9 +3,12 @@ window.onload = function () {
   const notes = document.querySelectorAll(".love-notes p");
   const heartsContainer = document.querySelector(".hearts");
 
-  // Start music after 2s
+  // Try to auto-play music after slight delay
   setTimeout(() => {
-    music.play().catch(() => {
+    music.play().then(() => {
+      console.log("Music started");
+    }).catch(() => {
+      // Autoplay blocked - show button
       const btn = document.createElement("button");
       btn.textContent = "Play Music 🎵";
       btn.className = "music-btn";
@@ -24,7 +27,7 @@ window.onload = function () {
     }, 2500 + i * 1000);
   });
 
-  // Start heart animation
+  // Start floating hearts
   setInterval(() => {
     const heart = document.createElement("div");
     heart.className = "heart";

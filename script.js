@@ -6,17 +6,19 @@ const signature = document.getElementById("signature");
 
 playBtn.addEventListener("click", () => {
   music.play().then(() => {
-    showTextLines();
     playBtn.disabled = true;
-    playBtn.innerText = "🎵 Playing";
+    playBtn.innerText = "🎵 Playing...";
+    showTextLines();
   }).catch(err => {
-    console.error("Music play failed:", err);
+    alert("Autoplay blocked. Please interact with the page first.");
+    console.error(err);
   });
 });
 
 function showTextLines() {
   const lines = notes.querySelectorAll("p");
   notes.classList.remove("hidden");
+
   lines.forEach((line, index) => {
     setTimeout(() => {
       line.style.display = "block";
@@ -29,7 +31,7 @@ function showTextLines() {
   }, lines.length * 1000 + 500);
 }
 
-// Floating hearts
+// Create floating hearts
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");

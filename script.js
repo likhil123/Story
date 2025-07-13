@@ -14,27 +14,28 @@ const lines = [
 const music = document.getElementById("bg-music");
 const textList = document.getElementById("text-list");
 const mainContent = document.getElementById("main-content");
-const photo = document.getElementById("main-photo");
+const heartsContainer = document.getElementById("hearts-container");
 
-// Wait for image to load before starting music and animations
-photo.onload = () => {
+let started = false;
+
+function init() {
+  // Prevent double-init if image reloads or triggers multiple times
+  if (started) return;
+  started = true;
+
+  // Show main content
   mainContent.style.display = "block";
 
-  // Start music
-  music.play().then(() => {
-    showLines();
-    startHeartAnimation();
-  }).catch((e) => {
-    console.warn("Autoplay failed, user interaction may be required.");
+  // Try playing music
+  music.play().catch((e) => {
+    console.warn("Music play failed, might need user interaction.");
   });
-};
 
-// Fallback if image already loaded (e.g. cached)
-if (photo.complete) {
-  photo.onload();
+  // Show text and animate hearts
+  showLines();
+  startHeartAnimation();
 }
 
-// Display lines one-by-one
 function showLines() {
   let i = 0;
   const interval = setInterval(() => {
@@ -50,17 +51,13 @@ function showLines() {
   }, 1200);
 }
 
-// Spawn hearts from side
 function startHeartAnimation() {
   setInterval(() => {
     const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.style.left = "0px";
-    heart.style.top = `${Math.random() * window.innerHeight}px`;
+    heart.className = "heart";
     heart.textContent = "❤️";
-    document.getElementById("hearts-container").appendChild(heart);
-
-    // Remove after animation
+    heart.style.top = `${Math.random() * window.innerHeight}px`;
+    heartsContainer.appendChild(heart);
     setTimeout(() => heart.remove(), 4000);
   }, 500);
 }

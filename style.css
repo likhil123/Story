@@ -1,95 +1,97 @@
-body {
+/* Reset and base styles */
+body, html {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #ffeff5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-}
-
-.container {
-  margin-top: 60px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.photo {
-  border-radius: 10px;
-  width: 300px;
-  height: auto;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  margin: 20px 0;
-  font-size: 2rem;
-  color: #333;
-}
-
-.text-box {
-  background: white;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 700px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.text-box p {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  display: none;
-  opacity: 0;
-  transition: opacity 1s ease-in;
-}
-
-#music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ff5e9c;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  font-size: 16px;
-  border-radius: 25px;
-  cursor: pointer;
-  z-index: 999;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Heart animation */
-.hearts-container {
-  position: fixed;
-  width: 100%;
+  padding: 0;
   height: 100%;
-  z-index: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background image with overlay */
+.background-overlay {
+  background-image: url("images/your-image.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
+/* Heart animation container */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Each floating heart */
 .heart {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background-image: url('heart.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  animation: floatHearts 10s linear infinite;
+  font-size: 24px;
+  animation: fly 4s linear forwards;
+  color: red;
+  opacity: 0.8;
 }
 
-@keyframes floatHearts {
+@keyframes fly {
   0% {
-    transform: translateY(100vh) scale(1);
+    transform: translateX(0) translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) scale(1.5);
+    transform: translateX(100vw) translateY(-100vh);
     opacity: 0;
+  }
+}
+
+/* Content container */
+.container {
+  text-align: center;
+  padding: 20px;
+  z-index: 3;
+  position: relative;
+}
+
+/* Image style */
+.photo {
+  max-width: 300px;
+  border-radius: 15px;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Header */
+h1 {
+  font-size: 2.5em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Line-by-line text */
+.text-box p {
+  font-size: 1.3em;
+  margin: 10px auto;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }

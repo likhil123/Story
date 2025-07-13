@@ -5,37 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Like About You</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Music (won't autoplay, starts on click) -->
-  <audio id="bg-music" src="music/your-music.mp3" loop></audio>
-
-  <div class="container">
-    <img src="images/your-image.jpeg" alt="Photo" class="photo" />
-    
-    <div class="title-row">
-      <h1 class="main-title">What I Like About You ❤️</h1>
-      <button id="play-btn">▶️ Play Music</button>
-    </div>
-  </div>
-
-  <div class="love-notes hidden" id="notes">
-    <p>💫 Your smile lights up every room.</p>
-    <p>💬 Your laugh is my favorite melody.</p>
-    <p>🌸 Your kindness makes the world softer.</p>
-    <p>🌙 You believe in me when I don’t believe in myself.</p>
-    <p>🪐 You’re my calm in the chaos.</p>
-    <p>🍰 You’re sweeter than dessert and warmer than sunshine.</p>
-    <p>🫶 I like how you love — genuinely, deeply, beautifully.</p>
-    <p>💌 Being with you is my favorite chapter.</p>
-  </div>
-
-  <h2 class="hidden" id="closing">Forever yours,</h2>
-  <p class="signature hidden" id="signature">— Junior</p>
+  <audio id="bg-music" loop>
+    <source src="music/your-music.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
   <div class="hearts"></div>
 
-  <script src="script.js"></script>
+  <div class="container">
+    <img src="images/your-image.jpeg" alt="Her Photo" class="hero-photo" />
+    <h1>
+      What I Like About You ❤️
+      <button id="playBtn">▶️ Play Music</button>
+    </h1>
+
+    <div class="love-notes hidden" id="notes">
+      <p>💫 Your smile lights up every room.</p>
+      <p>💬 Your laugh is my favorite melody.</p>
+      <p>🌸 Your kindness makes the world softer.</p>
+      <p>🌙 You believe in me when I don’t believe in myself.</p>
+      <p>🪐 You’re my calm in the chaos.</p>
+      <p>🍰 You’re sweeter than dessert and warmer than sunshine.</p>
+      <p>🫶 I Like how you love — genuinely, deeply, beautifully.</p>
+      <p>💌 Being with you is my favorite chapter.</p>
+    </div>
+
+    <h2 id="signature-header" class="hidden">Forever yours,</h2>
+    <p class="signature hidden" id="signature">— Junior</p>
+  </div>
 </body>
 </html>

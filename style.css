@@ -5,7 +5,6 @@ body {
   background: url("images/your-image.jpeg") no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
-  position: relative;
   color: #fff;
   text-align: center;
 }
@@ -13,16 +12,17 @@ body {
 .container {
   padding: 40px 20px;
   background-color: rgba(0, 0, 0, 0.6);
-  margin: 0 auto;
+  margin: 40px auto;
   max-width: 700px;
   border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .hero-photo {
   width: 250px;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
   box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
 }
 
@@ -34,7 +34,7 @@ h1 {
 button#playBtn {
   font-size: 0.9em;
   margin-left: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   cursor: pointer;
   background-color: #ff69b4;
   border: none;
@@ -75,7 +75,7 @@ button#playBtn:hover {
 }
 .heart {
   position: absolute;
-  animation: floatHearts 6s linear infinite;
+  animation: floatHearts 6s linear forwards;
   font-size: 20px;
   opacity: 0.8;
 }
@@ -90,7 +90,6 @@ button#playBtn:hover {
   }
 }
 
-/* Reveal animation */
 .hidden {
   display: none;
 }

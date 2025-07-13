@@ -1,10 +1,9 @@
-// Create falling hearts
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
-  heart.innerHTML = "❤️";
+  heart.innerText = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 24 + 12 + "px";
+  heart.style.fontSize = Math.random() * 20 + 16 + "px";
   document.querySelector(".hearts").appendChild(heart);
 
   setTimeout(() => {
@@ -12,4 +11,5 @@ function createHeart() {
   }, 5000);
 }
 
+// Spawn hearts every 300ms
 setInterval(createHeart, 300);

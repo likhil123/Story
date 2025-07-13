@@ -4,14 +4,12 @@ function createHeart() {
   heart.classList.add("heart");
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.floor(Math.random() * 24 + 16) + "px";
-  heart.style.animationDuration = Math.random() * 3 + 5 + "s"; // varied fall speed
+  heart.style.fontSize = Math.random() * 24 + 12 + "px";
   document.querySelector(".hearts").appendChild(heart);
 
   setTimeout(() => {
     heart.remove();
-  }, 8000); // match longer animation duration
+  }, 5000);
 }
 
-// Start creating hearts at intervals
 setInterval(createHeart, 300);

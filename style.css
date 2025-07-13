@@ -1,95 +1,131 @@
+/* General */
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  background: url("images/your-image.jpeg") no-repeat center center fixed;
-  background-size: cover;
-  overflow-x: hidden;
-  color: #fff;
-  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  overflow: hidden;
 }
 
+/* Background image + overlay */
+.background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+.bg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+}
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* Container */
 .container {
   padding: 40px 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  margin: 40px auto;
-  max-width: 700px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  text-align: center;
+  z-index: 1;
+  position: relative;
 }
-
-.hero-photo {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
-}
-
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
-button#playBtn {
-  font-size: 0.9em;
-  margin-left: 10px;
-  padding: 6px 12px;
+/* Play button */
+#play-btn {
+  margin-left: 15px;
+  padding: 6px 14px;
+  font-size: 1rem;
   cursor: pointer;
-  background-color: #ff69b4;
+  border-radius: 8px;
   border: none;
-  border-radius: 5px;
+  background: #ff69b4;
   color: white;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
 }
-button#playBtn:hover {
-  background-color: #ff1493;
+#play-btn:hover {
+  background: #ff85c1;
 }
 
+/* Love notes */
 .love-notes {
   margin-top: 30px;
-  text-align: left;
-  padding: 20px;
   font-size: 1.2rem;
-  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 12px;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+.hidden {
+  display: none;
+}
+.love-notes p {
+  margin: 10px 0;
+  opacity: 0;
+  animation: reveal 0.8s ease forwards;
+}
+.love-notes p:nth-child(1) { animation-delay: 0.5s; }
+.love-notes p:nth-child(2) { animation-delay: 1.2s; }
+.love-notes p:nth-child(3) { animation-delay: 1.9s; }
+.love-notes p:nth-child(4) { animation-delay: 2.6s; }
+.love-notes p:nth-child(5) { animation-delay: 3.3s; }
+.love-notes p:nth-child(6) { animation-delay: 4s; }
+.love-notes p:nth-child(7) { animation-delay: 4.7s; }
+.love-notes p:nth-child(8) { animation-delay: 5.4s; }
+.love-notes h2,
+.love-notes .signature {
+  opacity: 0;
+  animation: reveal 0.8s ease forwards;
+}
+.love-notes h2 { animation-delay: 6.2s; }
+.love-notes .signature { animation-delay: 7s; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.signature {
-  font-style: italic;
-  font-size: 1.3rem;
-  margin-top: 20px;
+@keyframes reveal {
+  to { opacity: 1; }
 }
 
-/* Floating Hearts */
+/* Floating hearts */
 .hearts {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
-  z-index: 999;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  overflow: hidden;
 }
 .heart {
   position: absolute;
-  animation: floatHearts 6s linear forwards;
-  font-size: 20px;
-  opacity: 0.8;
+  top: 100%;
+  animation: float 8s linear infinite;
+  font-size: 18px;
+  opacity: 0.7;
 }
-@keyframes floatHearts {
+@keyframes float {
   0% {
-    transform: translateY(100vh);
-    opacity: 1;
+    transform: translateY(0);
+    opacity: 0.9;
   }
   100% {
-    transform: translateY(-10vh);
+    transform: translateY(-120vh);
     opacity: 0;
   }
-}
-
-.hidden {
-  display: none;
 }

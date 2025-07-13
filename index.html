@@ -5,33 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>What I Like About You</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("bg-music");
+      audio.play();
+      document.getElementById("play-btn").style.display = "none";
+    }
+  </script>
 </head>
 <body>
-<audio autoplay loop>
-  <source src="music/HIT%203%20-%20Prema%20Velluva%20BGM.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
 
-<!-- Container -->
-<div class="container">
-  <img src="images/WhatsApp%20Image%202025-07-13%20at%2011.20.46%20AM.jpeg" alt="Her Photo" class="hero-photo" />
-  <h1>What I Like About You ❤️</h1>
-</div>
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="music/HIT%203%20-%20Prema%20Velluva%20BGM.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
 
-    <div class="love-notes">
-      <p>💫 Your smile lights up every room.</p>
-      <p>💬 Your laugh is my favorite melody.</p>
-      <p>🌸 Your kindness makes the world softer.</p>
-      <p>🌙 You believe in me when I don’t believe in myself.</p>
-      <p>🪐 You’re my calm in the chaos.</p>
-      <p>🍰 You’re sweeter than dessert and warmer than sunshine.</p>
-      <p>🫶 I Like how you love — genuinely, deeply, beautifully.</p>
-      <p>💌 Being with you is my favorite chapter.</p>
-    </div>
+  <!-- Fallback Button if Autoplay is Blocked -->
+  <button id="play-btn" onclick="playMusic()" style="display: none; position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    ▶️ Play Music
+  </button>
 
-    <h2>Forever yours,</h2>
-    <p class="signature">— [Junior]</p>
+  <!-- Main Content -->
+  <div class="container">
+    <img src="images/WhatsApp%20Image%202025-07-13%20at%2011.20.46%20AM.jpeg" alt="Her Photo" class="hero-photo" />
+    <h1>What I Like About You ❤️</h1>
   </div>
+
+  <div class="love-notes">
+    <p>💫 Your smile lights up every room.</p>
+    <p>💬 Your laugh is my favorite melody.</p>
+    <p>🌸 Your kindness makes the world softer.</p>
+    <p>🌙 You believe in me when I don’t believe in myself.</p>
+    <p>🪐 You’re my calm in the chaos.</p>
+    <p>🍰 You’re sweeter than dessert and warmer than sunshine.</p>
+    <p>🫶 I Like how you love — genuinely, deeply, beautifully.</p>
+    <p>💌 Being with you is my favorite chapter.</p>
+  </div>
+
+  <h2>Forever yours,</h2>
+  <p class="signature">— Junior</p>
+
+  <script>
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('bg-music');
+      const playBtn = document.getElementById('play-btn');
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          playBtn.style.display = 'block';
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>

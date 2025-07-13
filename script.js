@@ -1,45 +1,20 @@
-const music = document.getElementById("bg-music");
-const playBtn = document.getElementById("playBtn");
-const notes = document.getElementById("notes");
-const signatureHeader = document.getElementById("signature-header");
-const signature = document.getElementById("signature");
-
-playBtn.addEventListener("click", () => {
-  music.play().then(() => {
-    playBtn.disabled = true;
-    playBtn.innerText = "🎵 Playing...";
-    showTextLines();
-  }).catch(err => {
-    alert("Autoplay blocked. Please interact with the page first.");
-    console.error(err);
-  });
-});
-
-function showTextLines() {
-  const lines = notes.querySelectorAll("p");
-  notes.classList.remove("hidden");
-
-  lines.forEach((line, index) => {
-    setTimeout(() => {
-      line.style.display = "block";
-    }, index * 1000);
-  });
-
-  setTimeout(() => {
-    signatureHeader.classList.remove("hidden");
-    signature.classList.remove("hidden");
-  }, lines.length * 1000 + 500);
-}
-
-// Create floating hearts
+// Floating hearts
 function createHeart() {
   const heart = document.createElement("div");
   heart.classList.add("heart");
   heart.textContent = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 24 + 12 + "px";
+  heart.style.fontSize = Math.random() * 24 + 16 + "px";
   document.querySelector(".hearts").appendChild(heart);
 
-  setTimeout(() => heart.remove(), 6000);
+  setTimeout(() => heart.remove(), 8000);
 }
 setInterval(createHeart, 400);
+
+// Music control and reveal
+document.getElementById("play-btn").addEventListener("click", function () {
+  const music = document.getElementById("bg-music");
+  const notes = document.getElementById("love-notes");
+  music.play();
+  notes.classList.remove("hidden");
+});
